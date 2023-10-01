@@ -8,13 +8,16 @@ class AllCountries extends StatefulWidget {
 }
 
 class _AllCountriesState extends State<AllCountries> {
-  bool isSearching = false;
+  	bool isSearching = false;
 	List countries = [];
-  List filterCountries = [];
+  	List filterCountries = [];
+
 	getCountries() async{
 		var response = await Dio().get('http://restcountries.eu/rest/v2/all');
+		print(response)
 		return response.data;
 	}
+
 	@override
 	void initState() { 
 	  	super.initState();
@@ -30,6 +33,7 @@ class _AllCountriesState extends State<AllCountries> {
         filterCountries = countries.where((country)=> country['name'].toLowerCase().contains(value.toLowerCase())).toList();  
       });
   	}
+
 @override
 Widget build(BuildContext context) {
 		return Scaffold(
