@@ -5,6 +5,7 @@ main(){
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
       home: AllCountries()
-    ));
+    )
+  );
 }
 
